@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>灯还亮着</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='4' fill='%23c4453c'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="layer-read layer-audience layer-source">
+  <div id="intro">
+    <div class="intro-copy">
+      <p class="eyebrow">永定 · 一夜 · 三种字</p>
+      <h1><span>灯</span><span>还</span><span>亮</span><span>着</span></h1>
+      <p class="lead">你不是指挥官。你只知道下一站。墙上的字谁都能看，路条要对接头，香灰里的字只在灯亮时留在外面。</p>
+      <button id="enter" type="button">进入这一夜</button>
+      <p class="intro-note">口述只念有出处的句子。看不清的字不补。墙、路条和人物都是示意。</p>
+    </div>
+    <div class="intro-lamp" aria-hidden="true">
+      <span class="intro-glow"></span>
+      <span class="intro-flame"></span>
+    </div>
+  </div>
+
+  <div id="app" hidden>
+    <header>
+      <div class="brand">
+        <strong>灯还亮着</strong>
+        <span>中央红色交通线</span>
+      </div>
+      <div class="layers" role="group" aria-label="揭开层次">
+        <span class="layer-fixed">墨迹</span>
+        <button type="button" data-layer="read" aria-pressed="true">释读</button>
+        <button type="button" data-layer="audience" aria-pressed="true">谁能读</button>
+        <button type="button" data-layer="source" aria-pressed="true">出处</button>
+      </div>
+      <button id="mute" type="button" aria-pressed="false">声音开</button>
+    </header>
+
+    <div class="main">
+      <section class="stage-wrap">
+        <nav class="tabs" aria-label="三站">
+          <button class="tab on" type="button" data-chapter="wall" aria-selected="true">壹<br>墙</button>
+          <button class="tab" type="button" data-chapter="pass" aria-selected="false">贰<br>条</button>
+          <button class="tab" type="button" data-chapter="lamp" aria-selected="false">叁<br>灯</button>
+        </nav>
+        <div id="stage"></div>
+        <div class="vitrine">
+          <div class="fallback-figure" aria-hidden="true"></div>
+          <canvas id="courier"></canvas>
+          <p class="who">交通员 · 姓名未定<span>形象为示意，拖动可转身</span></p>
+        </div>
+        <div id="subtitle" aria-live="polite">
+          <span id="sub-kicker"></span>
+          <p id="sub-text">点一个词，他只讲有出处的句子。</p>
+        </div>
+        <p id="voice-note" hidden>这台电脑没有中文语音，句子仍写在下面。</p>
+      </section>
+
+      <aside>
+        <div class="reading">
+          <div class="reading-top">
+            <p class="seal" id="seal" data-kind="wall">公开</p>
+            <div>
+              <p class="place" id="place"></p>
+              <h2 id="chapter-title"></h2>
+            </div>
+          </div>
+          <p class="reading-body" id="reading-body"></p>
+          <button id="listen" type="button">听这一站</button>
+          <p class="source" id="source"></p>
+        </div>
+        <div class="graph-wrap">
+          <p class="graph-title">这一夜连着什么</p>
+          <div id="graph"></div>
+          <p class="legend"><i></i>有出处<span></span>未定，不补字</p>
+        </div>
+        <details class="sources">
+          <summary>材料依据</summary>
+          <ol>
+            <li>共产党员网，2021-10-29，《绝密使命！这条鲜为人知的「红色交通线」为何被称作「苏维埃的血脉」？》。伯公灯、香灰、水路信号、交通员姓名多不可考。</li>
+            <li>人民网党史频道，2020-12-11，《红色秘密交通线：「中华苏维埃的血脉」》。路线、周恩来关于交通线的转述、单线联系与化装掩护。</li>
+            <li>永定新闻网转《闽西日报》，2026-08-12，《虎岗红军标语承载的故事》。虎岗留存标语「打通闽粤赣交通路线，革命成功」。</li>
+            <li>《闽西日报》2019-06-27，王松基《永定高陂红军标语概略》。锡光堂残句「争取全国□□」。</li>
+          </ol>
+        </details>
+      </aside>
+    </div>
+  </div>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
